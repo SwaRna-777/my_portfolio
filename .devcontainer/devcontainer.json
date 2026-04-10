@@ -1,0 +1,22 @@
+{
+  "name": "Portfolio Dev",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20",
+  "features": {},
+  "postCreateCommand": "npm install -g pnpm && pnpm install",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Portfolio Dev Server",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  }
+}
