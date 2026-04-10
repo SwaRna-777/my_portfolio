@@ -54,18 +54,6 @@ export function HeroSection() {
               </Button>
             </div>
 
-            {/* Download project files */}
-            <div className="mt-6">
-              <a
-                href={`${import.meta.env.BASE_URL}portfolio-download.tar.gz`}
-                download="swarnasagar-portfolio.tar.gz"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/40 bg-primary/10 text-primary hover:bg-primary/20 transition-colors font-mono text-sm"
-              >
-                <Download className="w-4 h-4" />
-                Download Full Project (.tar.gz)
-              </a>
-            </div>
-
             <div className="mt-10 flex items-center gap-6 text-muted-foreground font-mono text-sm flex-wrap">
               <div className="flex items-center gap-2">
                 <Server className="w-4 h-4 text-primary" /> Azure & AWS
