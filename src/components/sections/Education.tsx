@@ -30,41 +30,44 @@ export function EducationSection() {
   const { ref, inView } = useInView();
 
   return (
-    <section id="education" className="py-24 relative bg-secondary/10 border-t border-border">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-mono mb-4">
-            <span className="text-primary">#</span> education_log
+    <section id="education" className="relative border-t border-border/60 bg-secondary/10 py-24 sm:py-32">
+      <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
+        <div className="mb-14 max-w-3xl">
+          <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-accent">
+            <span className="h-px w-6 bg-accent/60" aria-hidden="true"></span>
+            Education
+          </span>
+          <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
+            Academic foundation for infrastructure and data systems.
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-transparent mx-auto rounded-full"></div>
         </div>
 
         <div
           ref={ref}
-          className={`relative border-l-2 border-border ml-3 md:ml-6 space-y-12 transition-all duration-700 ${
+          className={`relative border-l border-border/70 ml-3 md:ml-6 space-y-8 transition-all duration-700 ${
             inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
           }`}
         >
           {EDUCATION.map((edu, idx) => (
             <div key={idx} className="relative pl-8 md:pl-12">
-              <div className="absolute w-6 h-6 bg-background rounded-full -left-[13px] top-1 flex items-center justify-center border-2 border-primary shadow-[0_0_10px_rgba(6,182,212,0.4)]">
-                <GraduationCap className="w-3 h-3 text-primary" />
+              <div className="absolute w-6 h-6 bg-background rounded-full -left-[13px] top-1 flex items-center justify-center border border-accent/50 shadow-[0_0_24px_hsl(var(--accent)/0.22)]">
+                <GraduationCap className="w-3 h-3 text-accent" />
               </div>
 
-              <div className="bg-secondary/30 border border-border rounded-2xl p-6 hover:bg-secondary/50 transition-colors">
+              <div className="rounded-[2rem] border border-border/70 bg-card/70 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 sm:p-7">
                 <div className="flex flex-col md:flex-row md:items-start justify-between mb-4 gap-3">
                   <div>
                     <h3 className="text-xl font-bold text-foreground">{edu.degree}</h3>
-                    <div className="text-lg text-primary font-mono mt-1">@ {edu.school}</div>
+                    <div className="text-lg text-accent mt-1">{edu.school}</div>
                     <div className="flex items-center gap-1 text-sm text-muted-foreground mt-1">
                       <MapPin className="w-3 h-3" /> {edu.location}
                     </div>
                   </div>
                   <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
-                    <div className="flex items-center gap-2 text-muted-foreground text-sm font-mono bg-background px-3 py-1 rounded-full border border-border">
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm bg-background/70 px-3 py-1 rounded-full border border-border">
                       <Calendar className="w-3 h-3" /> {edu.period}
                     </div>
-                    <span className={`text-xs font-mono px-2 py-1 rounded-full border ${edu.statusColor}`}>
+                    <span className={`text-xs font-mono px-2.5 py-1 rounded-full border ${edu.statusColor}`}>
                       {edu.status}
                     </span>
                   </div>
@@ -74,7 +77,7 @@ export function EducationSection() {
 
                 <div className="flex flex-wrap gap-2">
                   {edu.highlights.map((h) => (
-                    <span key={h} className="text-xs font-mono text-muted-foreground bg-background px-2 py-1 rounded border border-border">
+                    <span key={h} className="text-xs text-muted-foreground bg-background/70 px-2.5 py-1 rounded-full border border-border">
                       {h}
                     </span>
                   ))}

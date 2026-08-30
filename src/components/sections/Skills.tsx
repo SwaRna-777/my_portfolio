@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { SpotlightCard } from "@/components/effects/SpotlightCard";
 import { useInView } from "@/hooks/use-in-view";
 
 const SKILL_CATEGORIES = [
@@ -59,31 +60,34 @@ export function SkillsSection() {
   const { ref, inView } = useInView();
 
   return (
-    <section id="skills" className="py-24 bg-secondary/20 border-y border-border relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-mono mb-4">
-            <span className="text-primary">#</span> tech_stack
+    <section id="skills" className="relative border-y border-border/60 bg-secondary/20 py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div className="mb-14 max-w-3xl">
+          <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-accent">
+            <span className="h-px w-6 bg-accent/60" aria-hidden="true"></span>
+            Skills
+          </span>
+          <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
+            Practical tools for cloud, automation, and resilient systems.
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-transparent mx-auto rounded-full mb-6"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-5 text-pretty text-base leading-8 text-muted-foreground sm:text-lg">
             Hands-on expertise across cloud platforms, systems administration, DevOps tooling, and data technologies.
           </p>
         </div>
 
         <div
           ref={ref}
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-700 ${
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 transition-all duration-700 ${
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           {SKILL_CATEGORIES.map((category, idx) => (
-            <div
+            <SpotlightCard
               key={idx}
-              className="group h-full bg-background border border-border rounded-2xl p-6 shadow-md hover:shadow-xl hover:border-primary/50 transition-all duration-300"
+              className="group h-full rounded-[1.5rem] border border-border/70 bg-card/70 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-accent/30"
               style={{ transitionDelay: `${idx * 60}ms` }}
             >
-              <h3 className="text-base font-semibold font-mono text-foreground mb-4 pb-2 border-b border-border group-hover:border-primary/30 transition-colors">
+              <h3 className="text-base font-semibold text-foreground mb-4 pb-2 border-b border-border/60 group-hover:border-accent/30 transition-colors">
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -91,13 +95,13 @@ export function SkillsSection() {
                   <Badge
                     key={skill}
                     variant="outline"
-                    className={`${category.color} px-2 py-1 text-xs font-medium rounded-lg`}
+                    className={`${category.color} rounded-full px-2.5 py-1 text-xs font-medium`}
                   >
                     {skill}
                   </Badge>
                 ))}
               </div>
-            </div>
+            </SpotlightCard>
           ))}
         </div>
       </div>
