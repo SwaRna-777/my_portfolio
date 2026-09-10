@@ -1,3 +1,36 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="34%" r="74%">
+      <stop offset="0%" stop-color="#4A1F05"/>
+      <stop offset="58%" stop-color="#1F0B03"/>
+      <stop offset="100%" stop-color="#0D0501"/>
+    </radialGradient>
+    <linearGradient id="bolt" x1="111" y1="24" x2="57" y2="159" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7ED"/>
+      <stop offset="0.34" stop-color="#FDBA74"/>
+      <stop offset="0.72" stop-color="#F97316"/>
+      <stop offset="1" stop-color="#C2410C"/>
+    </linearGradient>
+    <filter id="purpleGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 1 0 0 0 0 0.42 0 0 0 0 0.05 0 0 0 0.9 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="outerGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="16" flood-color="#F97316" flood-opacity="0.58"/>
+    </filter>
+    <filter id="textGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#FED7AA" flood-opacity="0.78"/>
+    </filter>
+  </defs>
+  <rect width="180" height="180" rx="44" fill="url(#bg)"/>
+  <circle cx="90" cy="90" r="64" stroke="#F97316" stroke-opacity="0.25" stroke-width="3"/>
+  <circle cx="90" cy="90" r="46" fill="#F97316" fill-opacity="0.15" filter="url(#outerGlow)"/>
+  <path d="M104 18L44 101H83L69 162L136 72H95L104 18Z" fill="url(#bolt)" filter="url(#purpleGlow)"/>
+  <path d="M104 18L44 101H83L69 162L136 72H95L104 18Z" fill="#1F0B03" fill-opacity="0.18"/>
+  <text x="90" y="105" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="900" fill="#FFFFFF" letter-spacing="-4" filter="url(#textGlow)">SS</text>
+  <text x="90" y="105" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="900" fill="#FFF7ED" letter-spacing="-4">SS</text>
 </svg>
